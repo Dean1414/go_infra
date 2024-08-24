@@ -72,7 +72,7 @@ func main() {
 
 	http.HandleFunc("/hello-world", handleHelloWorld)
 	http.HandleFunc("/health", handleHealth)
-	http.HandleFUnc("/new-end-point", handleNewEndPoint)
+	http.HandleFunc("/new-end-point", handleNewEndPoint)
 
 	addr := "localhost:8000"
 	log.Printf("Listening on %s...", addr)
