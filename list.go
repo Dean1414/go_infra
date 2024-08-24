@@ -72,6 +72,7 @@ func main() {
 
 	http.HandleFunc("/hello-world", handleHelloWorld)
 	http.HandleFunc("/health", handleHealth)
+	http.HandleFUnc("/new-end-point", handleNewEndPoint)
 
 	addr := "localhost:8000"
 	log.Printf("Listening on %s...", addr)
@@ -95,6 +96,15 @@ func handleHealth(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, http.StatusText(http.StatusMethodNotAllowed), http.StatusMethodNotAllowed)
 	}
 	writeResponse(w, "Ok!\n")
+}
+
+func handleNewEndPoint(w http.ResponseWriter, r *http.Request) {
+
+	if r.Method != "GET" {
+		http.Error(w, http.StatusText(http.StatusMethodNotAllowed), http.StatusMethodNotAllowed)
+
+	}
+	writeResponse(w, "New End Point\n")
 }
 
 func writeResponse(w http.ResponseWriter, responseString string) {
